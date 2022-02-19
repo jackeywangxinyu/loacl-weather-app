@@ -14,7 +14,6 @@ export const fakeWeather: ICurrentWeather = {
 
 export class WeatherServiceFake implements IWeatherService {
   private fakeWeather: ICurrentWeather = fakeWeather
-
   public getCurrentWeather(city: string, country: string): Observable<ICurrentWeather> {
     return of(this.fakeWeather)
   }
