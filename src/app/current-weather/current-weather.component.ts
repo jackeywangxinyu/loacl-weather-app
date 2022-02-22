@@ -18,6 +18,7 @@ export class CurrentWeatherComponent implements OnInit {
       this.current = data
     })
   }
+
   getOrdinal(date: number | Date) {
     const n = new Date(date).getDate()
     return n > 0
