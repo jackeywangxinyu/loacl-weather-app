@@ -4,6 +4,7 @@ import { injectSpy } from 'angular-unit-test-helper'
 import { of } from 'rxjs'
 
 import { ICurrentWeather } from './../interfaces'
+import { MaterialModule } from './../material.module'
 import { WeatherService } from '../weather/weather.service'
 import { CurrentWeatherComponent } from './current-weather.component'
 
@@ -26,6 +27,7 @@ describe('CurrentWeatherComponent', () => {
     ])
 
     await TestBed.configureTestingModule({
+      imports: [MaterialModule],
       declarations: [CurrentWeatherComponent],
       providers: [
         {
@@ -66,7 +68,7 @@ describe('CurrentWeatherComponent', () => {
     expect(component.current.temperature).toEqual(fakeWeather.temperature)
 
     const el = fixture.debugElement
-    const title: HTMLElement = el.query(By.css('span')).nativeElement
+    const title: HTMLElement = el.query(By.css('.mat-title')).nativeElement
     expect(title.textContent).toContain(fakeWeather.city)
   })
 })
